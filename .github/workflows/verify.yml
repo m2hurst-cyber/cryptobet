@@ -1,0 +1,36 @@
+name: Macro Model Verify
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.x'
+      - name: Install verification dependencies
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+          go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.7
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+          echo "$HOME/go/bin" >> "$GITHUB_PATH"
+      - name: Run all verification gates
+        run: |
+          export PATH="$HOME/go/bin:$PATH"
+          python scripts/verify.py --live-resolution
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-report
+          path: verification-report.json
