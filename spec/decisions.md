@@ -30,3 +30,12 @@ The daily `model_log.jsonl` records computed trading-day ranks but does not prov
 
 ## 2026-09-07 — Offline fixture implementation clarification
 Final v1.0 verification generates deterministic fixtures ephemerally inside `verify.py` and restores all production data/site files byte-for-byte after the end-to-end check. No synthetic observation files are committed or available to scheduled production workflows.
+
+## 2026-09-07 — Hosted acceptance result
+GitHub Actions run `34071016437` executed the full acceptance suite in the hosted runner. All ten verification gates passed: all 10 frozen FRED IDs resolved live; all 11 sector ETFs resolved on yfinance; the exposure matrix passed; deterministic end-to-end execution passed; exact metric gates passed; both pages passed headless-browser interaction checks; the methodology PDF built; `public_live=false` passed; actionlint passed; README operations passed.
+
+## 2026-09-07 — Production bootstrap credential boundary
+A one-time controlled production bootstrap workflow was used only to determine whether required production credentials were already configured. It stopped before fetching or writing production observations because GitHub Actions has no `FRED_API_KEY` repository secret. No synthetic or partial production row was committed. The temporary bootstrap workflow was removed immediately after the probe.
+
+## 2026-09-07 — Deployment boundary
+No connected Cloudflare Pages integration is available. A Netlify plugin was discovered but is not connected, and no `NETLIFY_AUTH_TOKEN` / `NETLIFY_SITE_ID` credentials are available to the build agent. The repository retains both supported deployment paths without substituting an out-of-spec host.
