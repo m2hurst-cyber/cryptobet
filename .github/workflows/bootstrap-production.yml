@@ -1,0 +1,54 @@
+name: Macro Model Production Bootstrap
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bootstrap-production.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+      - name: Require production FRED secret
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          if [ -z "$FRED_API_KEY" ]; then
+            echo "FRED_API_KEY repository secret is not configured."
+            exit 1
+          fi
+      - name: Run first real shadow observation
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/daily_runner.py --as-of 2026-09-04
+      - name: Build methodology PDF
+        run: pandoc spec/methodology.md -s --pdf-engine=weasyprint -o site/assets/methodology.pdf
+      - name: Commit first production observation
+        run: |
+          git config user.name macro-model-bot
+          git config user.email macro-model-bot@users.noreply.github.com
+          git add data site
+          git commit -m "bootstrap: first live-data shadow observation 2026-09-04"
+          git push
+      - name: Deploy to Netlify when configured
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -n "$NETLIFY_AUTH_TOKEN" ] && [ -n "$NETLIFY_SITE_ID" ]; then
+            npx --yes netlify-cli deploy --dir=site --prod
+          else
+            echo "NETLIFY_AUTH_TOKEN/NETLIFY_SITE_ID not configured; deployment not performed."
+            exit 2
+          fi
