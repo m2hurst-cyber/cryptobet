@@ -1,0 +1,30 @@
+name: Macro Driver History Backfill
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/backfill_macro_drivers.py'
+      - '.github/workflows/macro-history-backfill.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install pandas numpy requests
+      - name: Build initial historical cache
+        run: python scripts/backfill_macro_drivers.py
+      - name: Commit cache
+        run: |
+          git config user.name macro-model-bot
+          git config user.email macro-model-bot@users.noreply.github.com
+          git add data/macro_driver_history.json data/macro_history_cache
+          git commit -m "data: initialize macro driver historical cache" || exit 0
+          git pull --rebase origin main
+          git push
