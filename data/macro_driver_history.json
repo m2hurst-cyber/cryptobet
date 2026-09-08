@@ -1,0 +1,179 @@
+{
+  "generated_at_utc": "2026-09-08T13:41:44.679162+00:00",
+  "history_start": "2019-01-01",
+  "method": "Trailing 60-month oriented component z-scores -> equal-weight parent composite -> trailing 60-month percentile",
+  "drivers": {
+    "Growth / activity": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "INDPRO",
+        "PAYEMS",
+        "RSAFS",
+        "GDPC1"
+      ]
+    },
+    "Consumer": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "DSPIC96",
+        "PCEC96",
+        "RRSFS",
+        "UMCSENT"
+      ]
+    },
+    "Housing": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "MORTGAGE30US",
+        "HOUST",
+        "PERMIT",
+        "HSN1F",
+        "MSACSR",
+        "CSUSHPINSA"
+      ]
+    },
+    "Labor market": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "PAYEMS",
+        "UNRATE",
+        "LNS12300060",
+        "ICSA",
+        "CCSA",
+        "JTSHIR",
+        "CES0500000003"
+      ]
+    },
+    "Prices / inflation": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "CPILFESL",
+        "CPIAUCSL",
+        "PCEPILFE",
+        "PCEPI",
+        "PPIACO",
+        "CUSR0000SAH1",
+        "T5YIFR"
+      ]
+    },
+    "Fiscal impulse": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "FGEXPND",
+        "FGRECPT",
+        "GFDEBTN"
+      ]
+    },
+    "Financial conditions": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "NFCI",
+        "DGS2",
+        "DGS10",
+        "DFII10",
+        "DTWEXBGS",
+        "VIXCLS"
+      ]
+    },
+    "Credit / liquidity": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "BAMLH0A0HYM2",
+        "BAMLC0A0CM",
+        "DRTSCILM",
+        "TOTCI",
+        "DRALACBS"
+      ]
+    },
+    "Market expectations": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "T10Y2Y",
+        "T5YIE",
+        "SP500",
+        "VIXCLS"
+      ]
+    },
+    "Trade / global": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "EXPGS",
+        "IMPGS",
+        "DTWEXBGS",
+        "GSCPI"
+      ]
+    },
+    "Corporate earnings": {
+      "status": "insufficient",
+      "used_components": [],
+      "unavailable_components": [
+        "CP",
+        "CPATAX",
+        "A053RC1Q027SBEA"
+      ]
+    }
+  },
+  "series_errors": {
+    "A053RC1Q027SBEA": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "BAMLC0A0CM": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "BAMLH0A0HYM2": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CCSA": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CES0500000003": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CP": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CPATAX": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CPIAUCSL": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CPILFESL": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CSUSHPINSA": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "CUSR0000SAH1": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "DFII10": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "DGS10": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "DGS2": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "DRALACBS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "DRTSCILM": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "DSPIC96": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "DTWEXBGS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "EXPGS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "FGEXPND": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "FGRECPT": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "GDPC1": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "GFDEBTN": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "GSCPI": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "HOUST": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "HSN1F": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "ICSA": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "IMPGS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "INDPRO": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "JTSHIR": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "LNS12300060": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "MORTGAGE30US": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "MSACSR": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "NFCI": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "PAYEMS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "PCEC96": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "PCEPI": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "PCEPILFE": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "PERMIT": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "PPIACO": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "RRSFS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "RSAFS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "SP500": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "T10Y2Y": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "T5YIE": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "T5YIFR": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "TOTCI": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "UMCSENT": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "UNRATE": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)",
+    "VIXCLS": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Read timed out. (read timeout=30)"
+  },
+  "series_cache_status": {}
+}
